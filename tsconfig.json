@@ -15,5 +15,5 @@
     "jsx": "preserve"
   },
   "include": ["next-env.d.ts", "src"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", ".storybook"]
 }
