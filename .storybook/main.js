@@ -11,7 +11,21 @@ module.exports = {
         rules: [
           // Filter out the default css loader
           ...config.module.rules.filter((rule) => /\.css$/ !== rule.test),
-          ...custom.module.rules,
+          {
+            test: /\.css/,
+            use: [
+              {
+                loader: "postcss-loader",
+                options: {
+                  plugins: [require("tailwindcss"), require("autoprefixer")],
+                  postcssOptions: {
+                    ident: "postcss",
+                    sourceMap: true,
+                  },
+                },
+              },
+            ],
+          },
         ],
       },
     }
